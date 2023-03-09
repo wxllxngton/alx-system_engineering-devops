@@ -22,3 +22,5 @@ mode=$(stat -c %a olleh) - The stat command is used to get the mode of the file 
 chmod "$mode" hello - command is used to set the mode of the file hello to the same mode as the file olleh, using the value stored in the mode variable.
 
 find . -type d -exec chmod a+x {} + - find command is used to search for all subdirectories in the current directory (.), and the -type d option is used to only select directories. The -exec option is used to execute the chmod a+x command on each directory found. The a+x option adds execute permission to the owner, the group owner and all other users.
+
+mkdir -m 751 my_dir - '-m' option is used to specify the permissions for the new directory. The 751 permission means that the owner has full permissions (7), the group can read and execute the directory (5), and all other users can only execute the directory (1).
