@@ -5,3 +5,4 @@ su betty - change user to betty
 whoami - print the effective username of the currrnt user
 groups $(whoami) - prints all the groups the current user is part of.
 chown - used to change the owner of a file
+chmod u+x - adds execute permission to the owner of the file
