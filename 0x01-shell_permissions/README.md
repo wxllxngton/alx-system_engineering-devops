@@ -3,4 +3,5 @@ List all commands in a few
 
 su betty - change user to betty
 whoami - print the effective username of the currrnt user
-groups $(whoami) 
+groups $(whoami) - prints all the groups the current user is part of.
+chown - used to change the owner of a file
