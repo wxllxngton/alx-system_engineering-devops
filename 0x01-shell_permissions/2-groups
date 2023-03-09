@@ -1,2 +1,2 @@
 #!/bin/bash
-groups -o $(whoami) | tr -d ' '
+id -Gn $(whoami)
