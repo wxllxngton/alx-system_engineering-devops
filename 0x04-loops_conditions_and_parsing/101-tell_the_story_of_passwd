@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Holberton School" 10 times
+# This script displays the content of the file /etc/passwd, using the while loop + IFS.
 file_h="/etc/passwd"
 f1=""
 f2=""
