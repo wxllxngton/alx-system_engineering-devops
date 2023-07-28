@@ -1,13 +1,5 @@
 # 0x04. Loops, conditions and parsing
 
-## Resources:books:
-Read or watch:
-* [Loops sample](https://intranet.hbtn.io/rltoken/fRCmr2B_Ne-rQdFZdfUDcA)
-* [Variable assignment and arithmetic](https://intranet.hbtn.io/rltoken/o8mucWW2XddN4MHiHSArkA)
-* [Comparison operators](https://intranet.hbtn.io/rltoken/jN0bfG-Qpkg3aYJM-n3LHw)
-* [File test operators](https://intranet.hbtn.io/rltoken/mYWUvI1VFqR_KWNWZngq7Q)
-* [Make your scripts portable](https://intranet.hbtn.io/rltoken/Dyrnap2UC-LrzrmCOJRx8A)
-
 ---
 ## Learning Objectives:bulb:
 What you should learn from this project:
@@ -25,15 +17,15 @@ What you should learn from this project:
 * Read for this task:
 
 
-### [1. For Holberton School loop](./1-for_holberton_school)
+### [1. For Best School loop](./1-for_best_school)
 * Write a Bash script that displays Holberton School 10 times.
 
 
-### [2. While Holberton School loop](./2-while_holberton_school)
+### [2. While Best School loop](./2-while_best_school)
 * Write a Bash script that displays Holberton School 10 times.
 
 
-### [3. Until Holberton School loop](./3-until_holberton_school)
+### [3. Until Best School loop](./3-until_best_school)
 * Write a Bash script that displays Holberton School 10 times.
 
 
