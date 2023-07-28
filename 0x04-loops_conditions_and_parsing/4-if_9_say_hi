@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script runs until "Best School" is printed 10 times 
+# but "HI" on 9th
+n=1
+while [ $n -le 10 ]
+do
+if [ $n == 9 ]
+then
+echo "Hi"
+else
+echo "Best School"
+fi
+((n++))
+done

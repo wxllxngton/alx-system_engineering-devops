@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# The script displays the time for 12 hours and 59 minutes
+# display hours from 0 to 12
+# display minutes from 1 to 59
+n=0
+while [ $n -le 779 ]; do
+    if [ $(( n % 60 )) -eq 0 ] || [ $n -eq 0 ]; then
+        echo "Hour: $(( n / 60 ))"
+    else
+	    echo "$(( n % 60 ))"
+    fi
+    ((n++))
+done
+

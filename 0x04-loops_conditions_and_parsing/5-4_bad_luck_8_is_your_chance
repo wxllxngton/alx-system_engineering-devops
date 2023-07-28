@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script runs until "Best School" is printed 10 times 
+# but "bad luck" on 4th
+# and "good luck" on 8th
+n=1
+while [ $n -le 10 ]
+do
+if [ $n == 4 ]
+then
+echo "bad luck"
+elif [ $n == 8 ]
+then
+echo "good luck"
+else
+echo "Best School"
+fi
+((n++))
+done

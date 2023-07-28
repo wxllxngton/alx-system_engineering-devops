@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script runs until 1-20 is printed
+# but "bad luck from China" on 4th,
+# "bad luck from Japan" on 9th,
+# and "bad luck from Italy" on 17th
+n=1
+while [ $n -le 20 ]
+do
+echo $n
+if [ $n == 4 ]
+then
+echo "bad luck from China"
+elif [ $n == 9 ]
+then
+echo "bad luck from Japan"
+elif [ $n == 17 ]
+then
+echo "bad luck from Italy"
+fi
+((n++))
+done
