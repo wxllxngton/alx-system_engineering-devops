@@ -14,7 +14,6 @@ What you should learn from this project:
 ---
 
 ### [0. Create a SSH RSA key pair](./0-RSA_public_key.pub)
-* Read for this task:
 
 
 ### [1. For Best School loop](./1-for_best_school)
