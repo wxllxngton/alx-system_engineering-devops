@@ -79,8 +79,3 @@ What you should learn from this project:
 
 ### [14. Dig the data](./103-dig_the-data)
 * Now that you’ve parsed the Apache log file, let’s sort the data so you can get a better idea of what is going on.
-
----
-
-## Author
-* **Arturo Victoria Rincon** - [arvicrin](https://github.com/arvicrin)
