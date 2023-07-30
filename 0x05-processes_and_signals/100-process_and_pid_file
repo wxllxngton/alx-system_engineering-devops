@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Displays messages while receiving signals
+# This script displays messages while receiving signals
 
 echo $$ > /var/run/myscript.pid
 trap 'echo "I hate the kill command"; rm -rf /var/run/myscript.pid; exit' SIGTERM
