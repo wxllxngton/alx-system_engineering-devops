@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-#Bash script that displays To infinity and beyond indefinitely
-# With sleep 2 between ach iteration
+# This script that displays To infinity and beyond indefinitely
+# In between each iteration of the loop, there's a sleep of 2
 
 while :
 do
