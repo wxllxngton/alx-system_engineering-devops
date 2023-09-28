@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# The script displays:
+# The content of the current directory
+# In a list format
+# Where only the part of the name after the first dash is displayed
+
+# Get the current directory
+current_dir=$(pwd)
+
+# Loop through each file in the current directory (excluding hidden files)
+for file in "$current_dir"/*; do
+    # Check if the file is not a hidden file
+    if [[ ! "$file" == *"/."* && ! "$file" == */.* ]]; then
+        # Extract the part of the name after the first dash
+        name=$(basename "$file")
+        part_after_dash=${name#*-}
+        
+        # Print the result in a list format
+        echo "$part_after_dash"
+    fi
+done
+

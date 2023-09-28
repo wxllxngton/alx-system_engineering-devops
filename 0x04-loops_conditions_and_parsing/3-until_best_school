@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script runs until "Best School" is printed 10 times
+n=1
+# Until n is greater than 10 print
+until [ $n -gt 10 ]
+do
+echo "Best School"
+((n++))
+done
