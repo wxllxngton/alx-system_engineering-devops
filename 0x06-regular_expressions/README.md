@@ -1,13 +1,13 @@
 **0-simply_match_school.rb**<br>
-Regular expression must match School
+* Regular expression must match School
 
 **1-repetition_token_0.rb**<br>
 * Regular expression must match a couple cases
 * **n{X,Y}**	Matches any string that contains a sequence of X to Y n's
 
 **2-repetition_token_1.rb**<br>
-Regular expression must match a couple cases
-**n?**	Matches any string that contains zero or one occurrences of n
+* Regular expression must match a couple cases
+* **n?**	Matches any string that contains zero or one occurrences of n
 
 **3-repetition_token_2.rb**<br>
 Regular expression must match a couple cases
