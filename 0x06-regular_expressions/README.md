@@ -1,29 +1,29 @@
-**0-simply_match_school.rb**
+**0-simply_match_school.rb**<br>
 Regular expression must match School
 
-**1-repetition_token_0.rb**
+**1-repetition_token_0.rb**<br>
 Regular expression must match a couple cases
+**n{X,Y}**	Matches any string that contains a sequence of X to Y n's
 
-
-**2-repetition_token_1.rb**
+**2-repetition_token_1.rb**<br>
 Regular expression must match a couple cases
+**n?**	Matches any string that contains zero or one occurrences of n
 
-
-**3-repetition_token_2.rb**
+**3-repetition_token_2.rb**<br>
 Regular expression must match a couple cases
  
 
-**4-repetition_token_3.rb**
+**4-repetition_token_3.rb**<br>
 Regular expression must match a couple cases
 Regex does not contain square brackets
 
-**5-beginning_and_end.rb**
+**5-beginning_and_end.rb**<br>
 The regular expression must be exactly matching a string that starts with h ends with n and can have any single character in between
 
-**6-phone_number.rb**
+**6-phone_number.rb**<br>
 Regular expression must match a 10 digit phone number
 
-**7-OMG_WHY_ARE_YOU_SHOUTING.rb**
+**7-OMG_WHY_ARE_YOU_SHOUTING.rb**<br>
 The regular expression only matches: capital letters
 
  ****
