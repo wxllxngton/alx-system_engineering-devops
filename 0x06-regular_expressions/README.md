@@ -1,3 +1,5 @@
+## 0x06-regular_expressions
+
 **0-simply_match_school.rb**<br>
 * Regular expression must match School
 
@@ -30,6 +32,5 @@
 * (?!\d) is a negative lookahead assertion, which checks that there is no digit immediately after the match.
 
 **7-OMG_WHY_ARE_YOU_SHOUTING.rb**<br>
-The regular expression only matches: capital letters
-
- ****
+* The regular expression only matches: capital letters
+* [A-Z]
