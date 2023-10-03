@@ -10,8 +10,8 @@
 * **n?**	Matches any string that contains zero or one occurrences of n
 
 **3-repetition_token_2.rb**<br>
-Regular expression must match a couple cases
- 
+* Regular expression must match a couple cases
+* **hbt{1,}n**
 
 **4-repetition_token_3.rb**<br>
 Regular expression must match a couple cases
