@@ -18,7 +18,8 @@ Regular expression must match a couple cases
 Regex does not contain square brackets
 
 **5-beginning_and_end.rb**<br>
-The regular expression must be exactly matching a string that starts with h ends with n and can have any single character in between
+* The regular expression must be exactly matching a string that starts with h ends with n and can have any single character in between
+* ^h.n$
 
 **6-phone_number.rb**<br>
 Regular expression must match a 10 digit phone number
