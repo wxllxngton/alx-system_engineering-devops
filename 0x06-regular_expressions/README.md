@@ -22,7 +22,11 @@ Regex does not contain square brackets
 * **^h.n$**
 
 **6-phone_number.rb**<br>
-Regular expression must match a 10 digit phone number
+* **(?<!\d)(\d{10})(?!\d)**
+* Regular expression must match a 10 digit phone number
+* (?<!\d) is a negative lookbehind assertion, which checks that there is no digit immediately before the match.
+* (\d{10}) matches exactly 10 consecutive digits and captures them in a group.
+* (?!\d) is a negative lookahead assertion, which checks that there is no digit immediately after the match.
 
 **7-OMG_WHY_ARE_YOU_SHOUTING.rb**<br>
 The regular expression only matches: capital letters
