@@ -14,8 +14,9 @@
 * **hbt{1,}n**
 
 **4-repetition_token_3.rb**<br>
-Regular expression must match a couple cases
-Regex does not contain square brackets
+* Regular expression must match a couple cases
+* Regex does not contain square brackets
+* **^(?!hbon$).***
 
 **5-beginning_and_end.rb**<br>
 * The regular expression must be exactly matching a string that starts with h ends with n and can have any single character in between
