@@ -34,3 +34,9 @@
 **7-OMG_WHY_ARE_YOU_SHOUTING.rb**<br>
 * The regular expression only matches: capital letters
 * [A-Z]
+
+**100-textme.rb**
+The script should output: [SENDER],[RECEIVER],[FLAGS]
+* The sender phone number or name (including country code if present)
+* The receiver phone number or name (including country code if present)
+* The flags that were used
