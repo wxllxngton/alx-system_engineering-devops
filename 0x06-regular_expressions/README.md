@@ -2,8 +2,8 @@
 Regular expression must match School
 
 **1-repetition_token_0.rb**<br>
-Regular expression must match a couple cases
-**n{X,Y}**	Matches any string that contains a sequence of X to Y n's
+* Regular expression must match a couple cases
+* **n{X,Y}**	Matches any string that contains a sequence of X to Y n's
 
 **2-repetition_token_1.rb**<br>
 Regular expression must match a couple cases
