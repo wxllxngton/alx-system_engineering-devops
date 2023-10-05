@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Check if the script is run as root (needed to see PIDs and program names)
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run this script as root to display PID and program names."
+  exit 1
+fi
+
+# Use netstat to list listening ports and their associated PIDs
+netstat -tuln | awk '
+  NR > 2 {
+    split($4, a, ":");
+    port = a[length(a)];
+    cmd = "lsof -i :" port " | grep LISTEN | awk '\''{print $2, $1}'\''";
+    cmd | getline result;
+    close(cmd);
+    if (result != "") {
+      print "Port:", port, "PID:", result;
+    }
+  }'
