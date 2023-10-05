@@ -1,4 +1,5 @@
 #!/bin/bash
+# Configures DNS resolution for localhost and facebook.com on an Ubuntu server
 
 # Check if the script is run as root (needed for modifying system files)
 if [ "$EUID" -ne 0 ]; then
