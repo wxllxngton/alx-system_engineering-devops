@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Bash script to listen on port 98 on localhost
 
 # Check if netcat is installed
