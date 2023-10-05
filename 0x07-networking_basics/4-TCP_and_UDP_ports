@@ -1,4 +1,5 @@
 #!/bin/bash
+# Display listening ports with associated PID and program name
 
 # Check if the script is run as root (needed to see PIDs and program names)
 if [ "$EUID" -ne 0 ]; then
