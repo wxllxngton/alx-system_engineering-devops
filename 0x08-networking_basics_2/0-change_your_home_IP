@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Configures DNS resolution for localhost and facebook.com on an Ubuntu server
 
 # Check if the script is run as root (needed for modifying system files)
