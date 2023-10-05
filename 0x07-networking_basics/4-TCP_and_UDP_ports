@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Display listening ports with associated PID and program name
 
 # Check if the script is run as root (needed to see PIDs and program names)
