@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Ping an IP address passed as an argument (5 times)
 # Usage: ./script.sh {IP_ADDRESS}
 
