@@ -1,3 +1,4 @@
+#!/usr/bin/pup
 # Puppet manifest for installing Flask using pip3
 
 # Install Flask using pip3
