@@ -1,5 +1,5 @@
 <details>
-<summary>### SSH Cheat Sheet</summary>
+### SSH Cheat Sheet
 <br>
 ## This sheet goes along with this [SSH YouTube tutorial](https://www.youtube.com/watch?v=hQWRp-FdTpc&t=1270s)
 
