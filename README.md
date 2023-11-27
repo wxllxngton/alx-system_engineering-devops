@@ -1,1 +1,1 @@
-Working with Shell in 0x00-shell_basics
+Repository for ALX School's System Engineering and DevOps projects
