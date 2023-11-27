@@ -1,0 +1,22 @@
+# Configure SSH client settings for passwordless server connections.
+
+# Apply the following configurations to all hosts.
+Host *
+
+    # Allow environment variables LANG and LC_* to be sent to the server.
+    SendEnv LANG LC_*
+
+    # Enable hashing of known hosts for added security.
+    HashKnownHosts yes
+
+    # Enable GSSAPI-based authentication.
+    GSSAPIAuthentication yes
+
+    # Disable delegation of GSSAPI credentials.
+    GSSAPIDelegateCredentials no
+
+    # Specify the path to the private key for authentication.
+    IdentityFile ~/.ssh/school
+
+    # Disable password authentication for increased security.
+    PasswordAuthentication no
