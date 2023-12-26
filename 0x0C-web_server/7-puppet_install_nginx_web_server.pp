@@ -48,8 +48,8 @@ file { '/etc/nginx/sites-available/default':
 }
 
 service { 'nginx-restart':
-  command => 'service nginx restart',
-  require => File['/etc/nginx/sites-available/default'],
+  command   => 'service nginx restart',
+  require   => File['/etc/nginx/sites-available/default'],
   subscribe => [
     File['/etc/nginx/html/index.html'],
     File['/etc/nginx/html/404.html'],
