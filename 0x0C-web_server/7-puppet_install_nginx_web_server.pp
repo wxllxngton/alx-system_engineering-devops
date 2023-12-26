@@ -51,5 +51,5 @@ file { '/etc/nginx/sites-available/default':
     }
   }",
   require => File['/etc/nginx/html'],
-  notify  => Service['nginx-restart'],
+  notify  => Service['nginx'],
 }
