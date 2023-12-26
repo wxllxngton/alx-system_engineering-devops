@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Installs nginx web server
+
+apt-get update
+apt-get install -y nginx
+
+echo "Hello school" > /etc/nginx/html/index.html
+
+echo "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html;
+    location /redirect_me {
+        return 301 https://johnombuya.pythonanywhere.com;
+    }
+}" > /etc/nginx/sites-available/default
+
+service nginx restart
