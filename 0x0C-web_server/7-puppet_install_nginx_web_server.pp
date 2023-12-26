@@ -1,3 +1,4 @@
+# Puppet manifest for installing and configuring Nginx
 exec { 'update_ubuntu':
   command  => 'sudo apt-get update',
   provider => 'shell',
@@ -9,9 +10,14 @@ package { 'nginx':
 }
 
 service { 'nginx':
-  ensure  => 'running',
-  enable  => true,
-  require => Package['nginx'],
+  ensure    => 'running',
+  enable    => true,
+  require   => Package['nginx'],
+  subscribe => [
+    File['/etc/nginx/sites-available/default'],
+    File['/etc/nginx/html/index.html'],
+    File['/etc/nginx/html/404.html'],
+  ],
 }
 
 file { '/etc/nginx/html':
@@ -45,5 +51,5 @@ file { '/etc/nginx/sites-available/default':
     }
   }",
   require => File['/etc/nginx/html'],
-  notify  => Service['nginx'],
+  notify  => Service['nginx-restart'],
 }
