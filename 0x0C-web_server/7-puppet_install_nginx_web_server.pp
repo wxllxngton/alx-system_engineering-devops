@@ -1,16 +1,16 @@
 exec { 'update_ubuntu':
-  command => 'sudo apt-get update',
+  command  => 'sudo apt-get update',
   provider => 'shell',
 }
 
 package { 'nginx':
-  ensure => 'installed',
+  ensure  => 'installed',
   require => Exec['update_ubuntu'],
 }
 
 service { 'nginx':
-  ensure => 'running',
-  enable => true,
+  ensure  => 'running',
+  enable  => true,
   require => Package['nginx'],
 }
 
@@ -45,13 +45,5 @@ file { '/etc/nginx/sites-available/default':
     }
   }",
   require => File['/etc/nginx/html'],
-}
-
-service { 'nginx-restart':
-  command   => 'service nginx restart',
-  require   => File['/etc/nginx/sites-available/default'],
-  subscribe => [
-    File['/etc/nginx/html/index.html'],
-    File['/etc/nginx/html/404.html'],
-  ],
+  notify  => Service['nginx'],
 }
