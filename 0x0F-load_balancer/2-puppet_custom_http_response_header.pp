@@ -1,40 +1,29 @@
-# 2-puppet_custom_http_response_header.pp
+# Custom HTTP header in a nginx server
 
-# Install Nginx
-class { 'nginx':
-  ensure => 'installed',
+# update ubuntu server
+exec { 'update server':
+  command  => 'apt-get update',
+  user     => 'root',
+  provider => 'shell',
 }
-
-# Define a custom fact to get the hostname
-Facter.add('custom_hostname') do
-  setcode 'hostname'
-end
-
-# Configure Nginx to add X-Served-By header
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,
-  content => "
-    server {
-        listen 80;
-        server_name _;
-
-        location / {
-            add_header X-Served-By $custom_hostname;
-            try_files \$uri \$uri/ =404;
-        }
-    }
-  ",
+->
+# install nginx web server on server
+package { 'nginx':
+  ensure   => present,
+  provider => 'apt'
 }
-
-# Create a symbolic link to enable the site
-file { '/etc/nginx/sites-enabled/default':
-  ensure => link,
-  target => '/etc/nginx/sites-available/default',
+->
+# custom Nginx response header (X-Served-By: hostname)
+file_line { 'add HTTP header':
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80;',
+  line   => 'add_header X-Served-By $hostname;'
 }
-
-# Restart Nginx service after making changes
+->
+# start service
 service { 'nginx':
-  ensure => 'running',
-  enable => true,
-  require => File['/etc/nginx/sites-available/default'],
+  ensure  => 'running',
+  enable  => true,
+  require => Package['nginx']
 }
