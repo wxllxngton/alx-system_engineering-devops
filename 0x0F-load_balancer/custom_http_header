@@ -7,6 +7,11 @@ hostname=$(hostname)
 # File path for the Nginx default configuration
 nginx_config="/etc/nginx/sites-enabled/default"
 
+# Add 'server_name _;' if not already present in the Nginx configuration
+if ! grep -q "server_name _;" "$nginx_config"; then
+    sudo sed -i '/server {/a \        server_name _;' "$nginx_config"
+fi
+
 # Add the 'add_header' line with the actual hostname after the 'server_name _;' line in the Nginx configuration
 sudo sed -i "/server_name _/a \        add_header X-Served-By $hostname;" "$nginx_config"
 
@@ -15,4 +20,3 @@ sudo nginx -t
 
 # Restart after making changes
 sudo service nginx restart
-
