@@ -3,7 +3,7 @@
 
 # Install HAProxy on a server
 apt-get -y update
-apt-get -y install haproxy=2.0.*
+apt-get -y install haproxy=1.6.*
 
 # Configure HAProxy configuration file to distribute requests using roundrobin algorithm
 echo '
