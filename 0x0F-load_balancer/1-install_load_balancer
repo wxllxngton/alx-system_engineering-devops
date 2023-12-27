@@ -19,3 +19,6 @@ backend web_servers
 
 # Restart HAProxy service
 service haproxy restart
+
+# Print the configured web servers
+echo "Configured web servers: web-01 web-02"
