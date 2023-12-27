@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 # Custom HTTP response header
 
-sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+# Get the hostname of the server
+hostname=$(hostname)
+
+# File path for the Nginx default configuration
+nginx_config="/etc/nginx/sites-enabled/default"
+
+# Add the 'add_header' line with the actual hostname after the 'server_name _;' line in the Nginx configuration
+sudo sed -i "/server_name _/a \        add_header X-Served-By $hostname;" "$nginx_config"
 
 # Test for syntax errors
 sudo nginx -t
 
 # Restart after making changes
 sudo service nginx restart
+
