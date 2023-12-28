@@ -268,3 +268,8 @@ Notice: /Stage[main]/Main/File_line[Declare identity file]/ensure: created
 Notice: Finished catalog run in 0.03 seconds
 vagrant@ubuntu:~$
 ```
+
+### Ensure that the authorized_keys file inside the .ssh directory has the correct permissions (600):
+```bash
+chmod 600 /home/ubuntu/.ssh/authorized_keys
+```
