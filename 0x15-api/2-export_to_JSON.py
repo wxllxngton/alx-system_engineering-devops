@@ -2,13 +2,15 @@
 
 """
 Python script that, using a REST API, for a given employee ID,
-returns information about his/her TODO list progress and exports data in CSV and JSON formats.
+returns information about his/her TODO list progress
+and exports data in CSV and JSON formats.
 """
 
 from requests import get
 from json import dump
 from sys import argv
 import csv
+
 
 def fetch(url):
     """
@@ -28,6 +30,7 @@ def fetch(url):
 
     return r.json()
 
+
 def fetch_user_data(employee_id):
     """
     Fetches user data from the API.
@@ -39,8 +42,10 @@ def fetch_user_data(employee_id):
         - Tuple containing user data and todo data.
     """
     try:
-        data_users = fetch('https://jsonplaceholder.typicode.com/users/{}'.format(employee_id))
-        data_todos = fetch('https://jsonplaceholder.typicode.com/todos/')
+        data_users = fetch(
+            "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
+        )
+        data_todos = fetch("https://jsonplaceholder.typicode.com/todos/")
         return data_users, data_todos
     except KeyError as e:
         print("KeyError: " + str(e))
@@ -48,6 +53,7 @@ def fetch_user_data(employee_id):
     except Exception as e:
         print("Exception: " + str(e))
         exit(1)
+
 
 def get_employee_progress(employee_id):
     """
@@ -73,14 +79,17 @@ def get_employee_progress(employee_id):
         data_users, data_todos = fetch_user_data(employee_id)
 
         for data in data_todos:
-            if data.get('userId') == employee_id:
+            if data.get("userId") == employee_id:
                 total += 1
-                if data.get('completed') is True:
+                if data.get("completed") is True:
                     completed += 1
-                    tasks.append(data.get('title'))
+                    tasks.append(data.get("title"))
 
-        print("Employee {} is done with tasks({}/{}):"
-              .format(data_users.get('name'), completed, total))
+        print(
+            "Employee {} is done with tasks({}/{}):".format(
+                data_users.get("name"), completed, total
+            )
+        )
 
         for task in tasks:
             print("\t {}".format(task))
@@ -91,6 +100,7 @@ def get_employee_progress(employee_id):
     except Exception as e:
         print("Exception: " + str(e))
         exit(1)
+
 
 def export_to_csv(employee_id):
     """
@@ -104,17 +114,20 @@ def export_to_csv(employee_id):
     """
     data_users, data_todos = fetch_user_data(employee_id)
 
-    with open("{}{}".format(employee_id, '.csv'), 'w', newline='') as file:
+    with open("{}{}".format(employee_id, ".csv"), "w", newline="") as file:
         file_writer = csv.writer(file, quoting=csv.QUOTE_ALL)
 
         for data in data_todos:
-            if data.get('userId') == employee_id:
-                file_writer.writerow([
-                    employee_id,
-                    data_users.get('username'),
-                    data.get('completed'),
-                    data.get('title')
-                ])
+            if data.get("userId") == employee_id:
+                file_writer.writerow(
+                    [
+                        employee_id,
+                        data_users.get("username"),
+                        data.get("completed"),
+                        data.get("title"),
+                    ]
+                )
+
 
 def export_to_json(employee_id):
     """
@@ -126,22 +139,21 @@ def export_to_json(employee_id):
     Returns:
         - None
     """
-    user_tasks = {
-        employee_id: []
-    }
+    user_tasks = {employee_id: []}
     data_users, data_todos = fetch_user_data(employee_id)
 
     for data in data_todos:
-        if data['userId'] == employee_id:
+        if data["userId"] == employee_id:
             new_dict = {
-                "task": data.get('title'),
-                "completed": data.get('completed'),
-                "username": data_users.get('username'),
+                "task": data.get("title"),
+                "completed": data.get("completed"),
+                "username": data_users.get("username"),
             }
             user_tasks[employee_id].append(new_dict)
 
-    with open("{}{}".format(employee_id, '.json'), 'w', newline='') as file:
+    with open("{}{}".format(employee_id, ".json"), "w", newline="") as file:
         dump(user_tasks, file)
+
 
 if __name__ == "__main__":
     if len(argv) != 2:

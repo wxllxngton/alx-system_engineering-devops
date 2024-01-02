@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 
 """
-Python script that, using a REST API, for a given employee ID,
-returns information about his/her TODO list progress.
+Python script that, using a REST API, for a
+given employee ID, returns information about
+their TODO list progress.
 """
 
 from requests import get
 from sys import argv
+
 
 def fetch(url):
     """
@@ -25,6 +27,7 @@ def fetch(url):
         exit(1)
 
     return r.json()
+
 
 def get_employee_progress(employee_id):
     """
@@ -47,18 +50,23 @@ def get_employee_progress(employee_id):
     tasks = []
 
     try:
-        data_todos = fetch('https://jsonplaceholder.typicode.com/todos/')
-        data_users = fetch('https://jsonplaceholder.typicode.com/users/{}'.format(employee_id))
+        data_todos = fetch("https://jsonplaceholder.typicode.com/todos/")
+        data_users = fetch(
+            "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
+        )
 
         for data in data_todos:
-            if data.get('userId') == employee_id:
+            if data.get("userId") == employee_id:
                 total += 1
-                if data.get('completed') is True:
+                if data.get("completed") is True:
                     completed += 1
-                    tasks.append(data.get('title'))
+                    tasks.append(data.get("title"))
 
-        print("Employee {} is done with tasks({}/{}):"
-              .format(data_users.get('name'), completed, total))
+        print(
+            "Employee {} is done with tasks({}/{}):".format(
+                data_users.get("name"), completed, total
+            )
+        )
 
         for task in tasks:
             print("\t {}".format(task))
@@ -69,6 +77,7 @@ def get_employee_progress(employee_id):
     except Exception as e:
         print("Exception: " + str(e))
         exit(1)
+
 
 if __name__ == "__main__":
     if len(argv) != 2:
