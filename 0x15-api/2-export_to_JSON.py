@@ -160,6 +160,6 @@ if __name__ == "__main__":
         print("Usage: ./{} {}".format(argv[0], "<employee_id>"))
         exit(1)
 
-    get_employee_progress(argv[1])
-    export_to_csv(argv[1])
+    #get_employee_progress(argv[1])
+    #export_to_csv(argv[1])
     export_to_json(argv[1])
