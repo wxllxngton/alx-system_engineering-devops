@@ -1,11 +1,23 @@
 #!/usr/bin/env bash
-# Custom HTTP response header
+# This script configures a new Ubuntu machine to add custom X-Served-By header in HTTP response
 
 # Get the hostname of the server
 hostname=$(hostname)
 
 # File path for the Nginx default configuration
 nginx_config="/etc/nginx/sites-enabled/default"
+
+# Ensure README.md exists and is not empty
+if [ ! -s README.md ]; then
+    echo "README.md does not exist or is empty. Please create and update the README.md file."
+    exit 1
+fi
+
+# Ensure an answer file is present
+if [ ! -e "answer-file" ]; then
+    echo "Answer file is missing. Please create an answer file."
+    exit 1
+fi
 
 # Add 'server_name _;' if not already present in the Nginx configuration
 if ! grep -q "server_name _;" "$nginx_config"; then

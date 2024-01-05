@@ -1,0 +1,10 @@
+!/usr/bin/env bash
+# Prepare docker container for use.
+
+apt-get update
+
+# Installs vim
+apt-get install -y vim
+
+# Installs sudo
+apt-get install -y sudo

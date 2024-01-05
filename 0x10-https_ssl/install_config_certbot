@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Script installs certbot and configures HAProxy
+
+# Update package information
+sudo apt update
+
+# Install certbot
+sudo apt install certbot
+
+# Stop services listening on port 80
+sudo service nginx stop
+sudo service haproxy stop
+
+# Generate SSL certificate
+sudo certbot certonly --standalone -d www.ombuya.tech
+
+# Your certificate and chain have been saved at:
+# /etc/letsencrypt/live/www.ombuya.tech/fullchain.pem
+# Set variables for paths
+haproxy_path="/etc/haproxy/haproxy.cfg"
+ssl_cert_path="/etc/letsencrypt/live/www.ombuya.tech/fullchain.pem"
+
+# Define SSL frontend block
+ssl_frontend_block="\
+frontend ombuya.tech_ssl\n\
+    bind 0.0.0.0:443 ssl crt $ssl_cert_path\n\
+    default_backend web_servers"
+
+# Use awk to find the line number of the backend web_servers block
+backend_line_number=$(awk '/backend web_servers/{ print NR; exit }' "$haproxy_path")
+
+# Use sed to insert the SSL frontend block below the backend web_servers block
+sed -i "$backend_line_number a\\$ssl_frontend_block" "$haproxy_path"
+
+# Start HAProxy
+sudo service haproxy start
+
