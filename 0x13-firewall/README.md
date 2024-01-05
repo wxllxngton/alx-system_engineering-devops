@@ -9,4 +9,4 @@ Configure ufw so that it blocks all incoming traffic, except the following TCP p
 `22` (SSH)
 `443` (HTTPS SSL)
 `80` (HTTP)
-Commands stored in ['0-block_all_incoming_traffic_but']0-block_all_incoming_traffic_but
+Commands stored in [0-block_all_incoming_traffic_but]('https://github.com/wxllxngton/alx-system_engineering-devops/blob/master/0x13-firewall/0-block_all_incoming_traffic_but')
