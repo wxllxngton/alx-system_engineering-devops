@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Script to configure ufw
+
+status=$(sudo ufw status)
+
+# Set variables for paths
+ufw_path="/etc/ufw/before.rules"
+
+# Define ufw block
+ufw_nat_block="\
+*nat\n\
+:PREROUTING ACCEPT [0:0]\n\
+# -p = Protocol | Redirecting connections from dynamic port 8080\n\
+# to port 80\n\
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80\n\
+COMMIT\n\
+"
+
+if [ "$status" == 'Status: inactive' ]; then
+    sudo ufw default deny incoming
+    sudo ufw default allow outgoing
+
+    # Allow ssh connection
+    sudo ufw allow 22/tcp
+
+    # Allow http and https connection
+    sudo ufw allow 80/tcp
+    sudo ufw allow 443/tcp
+
+    sudo ufw enable
+
+    sudo ufw status
+
+    # Insert the nat block before the *filter line
+    sed -i "/\*filter/i $ufw_nat_block" "$ufw_path"
+fi
+
