@@ -6,7 +6,7 @@ Script queries the Reddit API.
 from requests import get
 
 
-def recurse(subreddit, hot_list=None, after=None):
+def count_words(subreddit, word_list, after=None, count={}):
     """
     Function that queries the Reddit API and returns a list containing
     the titles of all hot articles for a given subreddit.
@@ -23,8 +23,7 @@ def recurse(subreddit, hot_list=None, after=None):
     if subreddit is None or not isinstance(subreddit, str):
         return None
 
-    if hot_list is None:
-        hot_list = []
+    word_list = [word.lower() for word in word_list]
 
     user_agent = {"User-agent": "Google Chrome Version 81.0.4044.129"}
     params = {"show": "all", "after": after}
@@ -44,14 +43,17 @@ def recurse(subreddit, hot_list=None, after=None):
         for post in raw_data:
             title = post.get("data", {}).get("title")
             if title:
-                hot_list.append(title)
+                title_word_list = title.lower().split(" ")
+                for word in title_word_list:
+                    if word in word_list:
+                        count[word] = count.get(word, 0) + 1
 
         if after is None:
-            return hot_list
+            for key in count:
+                print("{}: {}".format(key, count[key]))
         else:
-            return recurse(subreddit, hot_list, after)
+            return count_words(subreddit, word_list, after, count)
 
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
-
