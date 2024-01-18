@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-Script queries the Reddit API.
+Script queries the Reddit API recursively,
+parses the titles of all hot articles,
+and prints a sorted count of given keywords.
 """
 
 from requests import get
@@ -8,17 +10,18 @@ from requests import get
 
 def count_words(subreddit, word_list, after=None, count={}):
     """
-    Function that queries the Reddit API and returns a list containing
-    the titles of all hot articles for a given subreddit.
+    Recursively queries the Reddit API, parses titles of hot articles,
+    and prints a sorted count of given keywords.
 
     Parameters:
         subreddit (str): The subreddit to query.
-        hot_list (list): List to store the titles (default is an empty list).
+        word_list (list): List of keywords to count occurrences.
         after (str): Token for pagination (default is None).
+        count (dict): Dictionary to store keyword counts
+        (default is an empty dictionary).
 
     Returns:
-        list or None: A list containing the titles of hot articles,
-        or None if the subreddit is invalid.
+        None: Prints keyword counts or nothing if the subreddit is invalid.
     """
     if subreddit is None or not isinstance(subreddit, str):
         return None
@@ -49,7 +52,9 @@ def count_words(subreddit, word_list, after=None, count={}):
                         count[word] = count.get(word, 0) + 1
 
         if after is None:
-            for key in count:
+            """Print keyword counts in descending order by count
+            , then alphabetically."""
+            for key in sorted(count.keys(), key=lambda k: (-count[k], k)):
                 print("{}: {}".format(key, count[key]))
         else:
             return count_words(subreddit, word_list, after, count)
