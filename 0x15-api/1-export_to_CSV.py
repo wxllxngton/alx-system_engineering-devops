@@ -130,9 +130,9 @@ def export_to_csv(employee_id):
 
 
 if __name__ == "__main__":
-    if len(argv) != 2:
-        print("Usage: ./{} {}".format(argv[0], "<employee_id>"))
-        exit(1)
+    # if len(argv) != 2:
+    #     print("Usage: ./{} {}".format(argv[0], "<employee_id>"))
+    #     exit(1)
 
     # get_employee_progress(argv[1])
     export_to_csv(argv[1])
