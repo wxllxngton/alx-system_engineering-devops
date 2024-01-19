@@ -1,0 +1,40 @@
+[34m
+* Datadog Agent 7 install script v1.26.0
+[0m
+[34m
+* Installing apt-transport-https, curl and gnupg
+[0m
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu focal-backports InRelease
+Get:4 http://repo.mysql.com/apt/ubuntu bionic InRelease [20.0 kB]
+Get:5 http://repo.mysql.com/apt/ubuntu focal InRelease [12.8 kB]
+Hit:6 http://security.ubuntu.com/ubuntu focal-security InRelease
+Ign:7 https://apt.datadoghq.com stable InRelease
+Hit:8 https://apt.datadoghq.com stable Release
+Get:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [3,028 kB]
+Get:10 http://us-east-1.ec2.archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1,154 kB]
+Err:4 http://repo.mysql.com/apt/ubuntu bionic InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B7B3B788A8D3785C
+Err:5 http://repo.mysql.com/apt/ubuntu focal InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B7B3B788A8D3785C
+Reading package lists...
+W: GPG error: http://repo.mysql.com/apt/ubuntu bionic InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B7B3B788A8D3785C
+E: The repository 'http://repo.mysql.com/apt/ubuntu bionic InRelease' is not signed.
+W: GPG error: http://repo.mysql.com/apt/ubuntu focal InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B7B3B788A8D3785C
+E: The repository 'http://repo.mysql.com/apt/ubuntu focal InRelease' is not signed.
+W: Target Packages (mysql-5.7/binary-amd64/Packages) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target Packages (mysql-5.7/binary-all/Packages) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target Translations (mysql-5.7/i18n/Translation-en_US) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target Translations (mysql-5.7/i18n/Translation-en) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target CNF (mysql-5.7/cnf/Commands-amd64) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target CNF (mysql-5.7/cnf/Commands-all) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+[31m'apt-get update' failed, the script will not install the latest version of apt-transport-https.[0m
+bash: line 939: /tmp/ddog_install_error_msg: Permission denied
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
+W: Target Packages (mysql-5.7/binary-amd64/Packages) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target Packages (mysql-5.7/binary-all/Packages) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target Translations (mysql-5.7/i18n/Translation-en_US) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target Translations (mysql-5.7/i18n/Translation-en) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target CNF (mysql-5.7/cnf/Commands-amd64) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
+W: Target CNF (mysql-5.7/cnf/Commands-all) is configured multiple times in /etc/apt/sources.list.d/mysql.list:1 and /etc/apt/sources.list.d/mysql.list:2
