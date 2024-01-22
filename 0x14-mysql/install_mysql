@@ -14,6 +14,3 @@ sudo apt-cache policy mysql-server
 
 # Now install mysql 5.7
 sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
-
-Considering this line is not working:
-sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
