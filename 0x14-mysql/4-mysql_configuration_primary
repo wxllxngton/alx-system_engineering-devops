@@ -1,22 +1,10 @@
-# 4-mysql_configuration_primary
-
 [mysqld]
-server-id = 1
-log_bin = /var/log/mysql/mysql-bin.log
-binlog_do_db = tyrell_corp
-bind-address = 0.0.0.0  # Commented out or removed to allow all IP addresses
-
-# MySQL server settings (adjust as needed)
-datadir = /var/lib/mysql
-socket = /var/run/mysqld/mysqld.sock
-user = mysql
-# ... (other settings)
-
-# Logging and Replication Configuration
-log-error = /var/log/mysql/error.log
-relay_log = /var/log/mysql/mysql-relay-bin
-relay_log_index = /var/log/mysql/mysql-relay-bin.index
-log_slave_updates = 1
-auto-increment-increment = 2
-auto-increment-offset = 1
+pid-file       = /var/run/mysqld/mysqld.pid
+socket         = /var/run/mysqld/mysqld.sock
+datadir        = /var/lib/mysql
+log-error      = /var/log/mysql/error.log
+symbolic-links = 0
+server-id      = 1
+log_bin        = /var/log/mysql/mysql-bin.log
+binlog_do_db   = tyrell_corp
 
